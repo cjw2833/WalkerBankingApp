@@ -62,10 +62,11 @@ public class UserDao {
 			
 			while (resultSet.next()) {
 				// retrieve and print the values for the current row
+				int a = resultSet.getInt("id");
 				String b = resultSet.getString("acct_type");
 				String c = resultSet.getString("currency");
 				double d = resultSet.getDouble("balence");
-				System.out.println("                  " + b + ":    " + d + " " + c);
+				System.out.println("              " + a + " | " + b + ":    " + d + " " + c);
 				hasAccts = true;
 			}
 			
