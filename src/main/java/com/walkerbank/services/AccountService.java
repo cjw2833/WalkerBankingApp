@@ -151,7 +151,7 @@ public class AccountService {
 		System.out.print("         Select account to add user: "); // id for account
 		int acct_id = InputUtility.getIntChoice(100);
 		
-		System.out.print("         Enter Email of new user "); // id for account
+		System.out.print("         Enter Email of new user: "); // id for account
 		String newUserEmail = InputUtility.getStringInput(100);
 		
 		acctDao.addUserToAcct(acct_id, newUserEmail);

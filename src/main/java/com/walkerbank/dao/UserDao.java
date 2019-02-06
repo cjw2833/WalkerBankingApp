@@ -48,17 +48,16 @@ public class UserDao {
 			return user;
 	}
 	
-	public User getUserAccounts(User user) {
+	public boolean getUserAccounts(User user, boolean hasAccts) {
 		connect();
 		
-		String query = "SELECT * FROM account_table WHERE id = ANY ( SELECT accounts_id FROM users_accounts " + 
-				"WHERE users_id = ANY ( SELECT id FROM user_table WHERE first_name = 'Lester'))";
+		String query = "SELECT * FROM account_table WHERE id = ANY (SELECT accounts_id" 
+						+ "	FROM users_accounts WHERE users_id = ?)";
 		
 		try {
 			PreparedStatement s = conn.prepareStatement(query);
 		
 			s.setInt(1, user.getId());
-			s.setString(2, user.getFirstName());
 			ResultSet resultSet = s.executeQuery();
 			
 			while (resultSet.next()) {
@@ -67,13 +66,17 @@ public class UserDao {
 				String c = resultSet.getString("currency");
 				double d = resultSet.getDouble("balence");
 				System.out.println("                  " + b + ":    " + d + " " + c);
+				hasAccts = true;
 			}
+			
+			resultSet.close();
+			s.close();
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return user;
+		return hasAccts;
 	}
 	
 	

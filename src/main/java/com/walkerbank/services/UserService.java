@@ -108,5 +108,12 @@ public class UserService {
 		System.out.println("         Logging into your account . . .");
 	}
 	
-	public void displayAccts() {  userDao.getUserAccounts(user);  }
+	public boolean displayAccts() {  
+		boolean hasAccts = false;
+		hasAccts = userDao.getUserAccounts(user, hasAccts); 
+		return hasAccts;
+	}
 }
+
+
+

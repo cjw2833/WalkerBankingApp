@@ -20,8 +20,7 @@ public class UserMainMenu implements Menu{
 		System.out.println("    	*******************************************");
 		System.out.println("                                                   ");
 		
-		//if(UserService.newUser == false) {
-			//userService.displayAccts();
+		if(userService.displayAccts()){
 			System.out.println("                                                   ");
 			System.out.println("        *     1. OPEN A NEW CHECKING ACCOUNT      *");
 			System.out.println("        *     2. OPEN A NEW SAVINGS ACCOUNT       *");
@@ -29,16 +28,16 @@ public class UserMainMenu implements Menu{
 			System.out.println("        *     4. WITHDRAW MONEY                   *");
 			System.out.println("        *     5. TRANSFER MONEY                   *");
 			System.out.println("        *     6. ADD USER TO ACCOUNT              *");
-			System.out.println("        *     7. CLOSE ACCOUNT                    *");
-			System.out.println("        *     8. LOGOUT                           *");
+			//System.out.println("        *     7. CLOSE ACCOUNT                    *");
+			System.out.println("        *     7. LOGOUT                           *");
 			System.out.println("        *******************************************");
-		//}else {
-//			System.out.println("                                                   ");
-//			System.out.println("        *     1. OPEN A NEW CHECKING ACCOUNT      *");
-//			System.out.println("        *     2. OPEN A NEW SAVINGS ACCOUNT       *");
-//			System.out.println("        *     8. LOGOUT                           *");
-//			System.out.println("        *******************************************");
-		//}
+		}else {
+			System.out.println("                                                   ");
+			System.out.println("        *     1. OPEN A NEW CHECKING ACCOUNT      *");
+			System.out.println("        *     2. OPEN A NEW SAVINGS ACCOUNT       *");
+			System.out.println("        *     7. LOGOUT                           *");
+			System.out.println("        *******************************************");
+		}
 	}
 
 	@Override
@@ -50,8 +49,8 @@ public class UserMainMenu implements Menu{
 			case 4: acctService.withdraw(); break;
 			case 5: acctService.transfer(); break;
 			case 6: acctService.addUserToAccount(); break;
-			case 7: acctService.deleteAcct(); break;
-			case 8: return null;
+			//case 7: acctService.deleteAcct(); break;
+			case 7: return null;
 		}
 		return this;
 	}
