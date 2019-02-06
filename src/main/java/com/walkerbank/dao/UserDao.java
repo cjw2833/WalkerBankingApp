@@ -67,6 +67,8 @@ public class UserDao {
 				String c = resultSet.getString("currency");
 				double d = resultSet.getDouble("balence");
 				System.out.println("              " + a + " | " + b + ":    " + d + " " + c);
+				
+				user.getAcctNumbers().add(a);
 				hasAccts = true;
 			}
 			
@@ -76,7 +78,8 @@ public class UserDao {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
+	
+		user.setAcctNumbers(user.getAcctNumbers());
 		return hasAccts;
 	}
 	

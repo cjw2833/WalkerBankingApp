@@ -57,6 +57,6 @@ public class UserMainMenu implements Menu{
 
 	@Override
 	public void getUserInput() {
-		inputValue = InputUtility.getIntChoice(8);
+		inputValue = InputUtility.getIntChoice(7);
 	}
 }

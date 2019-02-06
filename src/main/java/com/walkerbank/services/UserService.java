@@ -1,5 +1,7 @@
 package com.walkerbank.services;
 
+import java.util.ArrayList;
+
 import org.mindrot.jbcrypt.BCrypt;
 import com.walkerbank.dao.UserDao;
 import com.walkerbank.models.User;
@@ -56,6 +58,14 @@ public class UserService {
 	
 	public void setPass_hash(String pass_hash) {
 		pass_hash = user.getPass_hash();
+	}
+	
+	public ArrayList<Integer> getAcctNumbers() {
+		return user.getAcctNumbers();
+	}
+	
+	public void setAcctNumbers(ArrayList<Integer> acctNumbers) {
+		acctNumbers = user.getAcctNumbers();
 	}
 	
 	public void createUser() {

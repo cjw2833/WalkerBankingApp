@@ -12,7 +12,7 @@ public class InputUtility {
 		do {
 			while(!scanner.hasNextInt()) {
 				scanner.nextLine();
-				System.out.println("Please enter a whole number.");
+				System.out.println("         ERROR: Please enter a whole number.");
 			}
 			
 			// Retrieve user input
@@ -21,7 +21,7 @@ public class InputUtility {
 			
 			// Confirm user input is within the range of 0 to max
 			if(inputValue <= 0 || inputValue > max) {
-				System.out.println("Please enter a number between 1 and " + max);
+				System.out.println("         ERROR: Please enter a number between 1 and " + max);
 			}
 			
 		} while(inputValue < 0 || inputValue > max);
@@ -37,7 +37,7 @@ public class InputUtility {
 		do {
 			while(!scanner.hasNextDouble()) {
 				scanner.nextLine();
-				System.out.println("Please enter a number.");
+				System.out.println("         ERROR: Please enter a number.");
 			}
 			
 			// Retrieve user input
@@ -46,7 +46,7 @@ public class InputUtility {
 			
 			// Confirm user input is within the range of 0 to max
 			if(inputValue <= 0 || inputValue > max) {
-				System.out.println("Please enter a number between 1 and " + max);
+				System.out.println("         ERROR: Please enter a number between 1 and " + max);
 			}
 			
 		} while(inputValue < 0 || inputValue > max);
@@ -63,12 +63,12 @@ public class InputUtility {
 			
 			input = input.trim();
 			if(input.length() == 0){
-				System.out.println("String has no content");
+				System.out.println("         String has no content");
 				continue;
 			}
 			
 			if(input.length() > max){
-				System.out.println("Enter string less than" + max);
+				System.out.println("         Enter string less than" + max);
 				continue;
 			}
 			

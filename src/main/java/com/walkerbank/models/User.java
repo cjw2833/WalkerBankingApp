@@ -1,11 +1,14 @@
 package com.walkerbank.models;
 
+import java.util.ArrayList;
+
 public class User {
 	private int id;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String pass_hash;
+	private ArrayList<Integer> acctNumbers = new ArrayList<Integer>();
 	
 	public int getId() {
 		return id;
@@ -37,6 +40,14 @@ public class User {
 	}
 	public void setPass_hash(String pass_hash) {
 		this.pass_hash = pass_hash;
+	}
+	
+	public ArrayList<Integer> getAcctNumbers() {
+		return acctNumbers;
+	}
+	
+	public void setAcctNumbers(ArrayList<Integer> acctNumbers) {
+		this.acctNumbers = acctNumbers;
 	}
 	
 	@Override

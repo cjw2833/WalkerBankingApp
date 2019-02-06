@@ -82,9 +82,10 @@ public class AccountService {
 		
 		// Display user accounts menu
 		
-		System.out.print("         Select account to deposit into: "); // id for account
+		System.out.print("         Enter account to deposit into: "); // id for account
 		int acct_id = InputUtility.getIntChoice(100);
 		
+		System.out.println();
 		System.out.print("         Enter amount to be deposited: ");
 		double amt = InputUtility.getDoubleInput(100_000);
 		
@@ -103,8 +104,21 @@ public class AccountService {
 		
 		// Display user accounts menu
 		
-		System.out.print("         Select account to withdraw from: "); // id for account
+		System.out.print("         Enter account to withdraw from: "); // id for account
 		int acct_id = InputUtility.getIntChoice(100);
+		System.out.println();
+		
+		boolean acctFound = userService.getAcctNumbers().contains(acct_id);
+		
+		if(acctFound == false) {
+			do {
+				System.out.println("         ERROR: Please enter a correct account number!");
+				System.out.print("         Enter account to withdraw from: "); // id for account
+				System.out.println();
+				acct_id = InputUtility.getIntChoice(100);
+				acctFound = userService.getAcctNumbers().contains(acct_id);
+			}while(acctFound == false);
+		}
 		
 		System.out.print("         Enter amount to be withdrawn: ");
 		double amt = InputUtility.getDoubleInput(100_000);
@@ -124,11 +138,25 @@ public class AccountService {
 		
 		// Display user accounts menu
 		
-		System.out.print("         Select account to transfer from: "); // id for account
+		System.out.print("         Enter account to transfer from: "); // id for account
 		int acct_idFrom = InputUtility.getIntChoice(100);
+		System.out.println();
 		
-		System.out.print("         Select account to transfer to: "); // id for account
+		boolean acctFound = userService.getAcctNumbers().contains(acct_idFrom);
+		
+		if(acctFound == false) {
+			do {
+				System.out.println("         ERROR: Please enter a correct account number!");
+				System.out.print("         Enter account to transfer from: "); // id for account
+				System.out.println();
+				acct_idFrom = InputUtility.getIntChoice(100);
+				acctFound = userService.getAcctNumbers().contains(acct_idFrom);
+			}while(acctFound == false);
+		}
+		
+		System.out.print("         Enter account to transfer to: "); // id for account
 		int acct_idTo = InputUtility.getIntChoice(100);
+		System.out.println();
 		
 		System.out.print("         Enter amount to be transferred: ");
 		double amt = InputUtility.getDoubleInput(100_000);
@@ -148,8 +176,21 @@ public class AccountService {
 		
 		// Display user accounts menu
 		
-		System.out.print("         Select account to add user: "); // id for account
+		System.out.print("         Enter account to add user: "); // id for account
 		int acct_id = InputUtility.getIntChoice(100);
+		System.out.println();
+		
+		boolean acctFound = userService.getAcctNumbers().contains(acct_id);
+		
+		if(acctFound == false) {
+			do {
+				System.out.println("         ERROR: Please enter a correct account number!");
+				System.out.print("         Enter account to transfer from: "); // id for account
+				System.out.println();
+				acct_id = InputUtility.getIntChoice(100);
+				acctFound = userService.getAcctNumbers().contains(acct_id);
+			}while(acctFound == false);
+		}
 		
 		System.out.print("         Enter Email of new user: "); // id for account
 		String newUserEmail = InputUtility.getStringInput(100);
@@ -169,7 +210,7 @@ public class AccountService {
 		
 		// Display user accounts menu
 		
-		System.out.print("         Select account to delete: "); // id for account
+		System.out.print("         Enter account to delete: "); // id for account
 		int acct_id = InputUtility.getIntChoice(100);
 		acctDao.deleteAccount(acct_id, userService.getUserId());
 	}
@@ -178,4 +219,5 @@ public class AccountService {
 		double newAmount = 0.0;
 		return newAmount;
 	}
+	
 }
